@@ -37,6 +37,7 @@ void checkingAccount::acc_WIT(double amt)
       cout << "after Withdrawing: " << amt << '\n'
            << "the balance is now: " << fixed << setprecision(2) << bal
            << '\n';
+      set_bal(bal);
     } else
       cout << "error can not withdraw more than current balance: \n"
            << "current balance is: " << fixed << setprecision(2) << bal

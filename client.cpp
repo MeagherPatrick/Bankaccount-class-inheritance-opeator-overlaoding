@@ -13,6 +13,7 @@ set and update customers' bank accounts
 const int SIZE = 20;
 int main()
 {
+  double amt = 0;
   char ans ='q';
   char ans2 = ' ';
     int acc;
@@ -29,6 +30,12 @@ int main()
       case 'A':
         if (newACC < 20) {
           test[newACC].acc_SET();
+          cout << "please enter the Monthly Service Charge";
+          cin >> amt;
+          test[newACC].set_sc(amt);
+          cout << "please enter the Minimum Balance";
+          cin >> amt;
+          test[newACC].set_mb(amt);
           newACC++;
           break;
         }
@@ -41,13 +48,15 @@ int main()
         cout << "Please enter the account num you would to edit: \n  ";      
         cin >> acc;
         while (ans != 'q') {
-          cout << "Enter a to make a deposit." << '\n'
-               << "Enter b to withdraw." << '\n'
-               << "Enter c to check balance." << '\n'
-               << "Enter d to upate balance with interest." << '\n'
-               << "Enter q to return to previous menu." << '\n';
+          cout << "Enter a to make a deposit. \n"
+               << "Enter b to withdraw. \n"
+               << "Enter c to check balance. \n"
+               << "Enter d to upate balance with interest.\n"
+               << "Enter e to update the monthly service charge. \n"
+               << "Enter f to update the minimum allowed balance \n"
+               << "Enter q to return to previous menu. \n";
           cin >> ans;
-        double amt = 0;
+          amt = 0;
           switch (ans) {
             case 'a':
             case 'A':
@@ -69,6 +78,26 @@ int main()
             case 'D':
               test[acc].acc_InterestUpdate();
               break;
+            case 'e':
+            case 'E':
+              amt = 0;
+              cout << "the current Monthly Service charge is: "
+                   << test[acc].get_sc() << '\n';
+              cout << "please enter the new Monthly Service charge \n";
+              cin >> amt;
+              test[acc].set_sc(amt);
+              cout << "the NEW Monthly Service charge is: "
+                   << test[acc].get_sc() << '\n';
+            case 'f':
+            case 'F':
+              amt = 0;
+              cout << "the current Monthly Service charge is: "
+                   << test[acc].get_mb() << '\n';
+              cout << "PLease Enter The NEW Minimum Required Balance\n";
+              cin >> amt;
+              test[acc].set_mb(amt);
+              cout << "the New Minimum  reuired balance is: "
+                   << test[acc].get_mb() << '\n';
             case 'q':
             case 'Q':
             default:
