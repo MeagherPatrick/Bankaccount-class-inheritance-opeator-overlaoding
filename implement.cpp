@@ -77,44 +77,8 @@ void bankAccount::acc_WIT(double amt)
 void bankAccount::acc_UPd()
 { 
  
-  char ans = ' ';
-  double amt=0;
-  while (ans != 'q') 
-  {
-    cout << "Enter a to make a deposit." << '\n'
-         << "Enter b to withdraw." << '\n'
-         << "Enter c to check balance." << '\n'
-         << "Enter d to upate balance with interest." << '\n'
-         << "Enter q to return to previous menu." << '\n';
-    cin >> ans;
-    switch (ans) {
-      case 'a':
-      case 'A':
-        cout << "Enter the amount you would like to Deposit: \n";
-        cin >> amt;
-        acc_DEP(amt);
-        break;
-      case 'b':
-      case 'B':
-        cout << "Enter the amount you would like to Withdraw: \n";
-        cin >> amt;
-        acc_WIT(amt);
-        break;
-      case 'c':
-      case 'C':
-        cout << "The current balance is: $" << bal << '\n';
-        break;
-      case 'd':
-      case 'D':
-        acc_InterestUpdate();
-        break;
-      case 'q':
-      case 'Q':
-      default:
-          break;
-
-    }
-  }
+ 
+  
 }
 
   string bankAccount::get_name() const

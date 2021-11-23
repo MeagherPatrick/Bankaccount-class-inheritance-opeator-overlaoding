@@ -46,9 +46,10 @@ void checkingAccount::acc_WIT(double amt)
 checkingAccount checkingAccount::operator+(const double x)
 {
   double i = 0;
-  checkingAccount temp;
-   temp.set_bal(x);
-  
+  checkingAccount temp = *this;
+  i = temp.get_Bal();
+  i += x;
+   temp.set_bal(i);  
   return temp;
 }
 

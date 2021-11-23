@@ -14,7 +14,8 @@ const int SIZE = 20;
 int main()
 {
   char ans ='q';
-  int acc;
+  char ans2 = ' ';
+    int acc;
   checkingAccount test[SIZE];
   do {
         static int newACC=0;
@@ -39,7 +40,41 @@ int main()
           test[i].acc_Prt();
         cout << "Please enter the account num you would to edit: \n  ";      
         cin >> acc;
-            test[acc].acc_UPd();
+        while (ans != 'q') {
+          cout << "Enter a to make a deposit." << '\n'
+               << "Enter b to withdraw." << '\n'
+               << "Enter c to check balance." << '\n'
+               << "Enter d to upate balance with interest." << '\n'
+               << "Enter q to return to previous menu." << '\n';
+          cin >> ans;
+        double amt = 0;
+          switch (ans) {
+            case 'a':
+            case 'A':
+              cout << "Enter the amount you would like to Deposit: \n";
+              cin >> amt;
+             test[acc] = test[acc] + amt;
+              break;
+            case 'b':
+            case 'B':
+              cout << "Enter the amount you would like to Withdraw: \n";
+              cin >> amt;
+              test[acc].acc_WIT(amt);
+              break;
+            case 'c':
+            case 'C':
+              cout << "The current balance is: $" << test[acc].get_Bal() << '\n';
+              break;
+            case 'd':
+            case 'D':
+              test[acc].acc_InterestUpdate();
+              break;
+            case 'q':
+            case 'Q':
+            default:
+              break;
+          }
+        }
         break;
       case 'c':
       case 'C':
