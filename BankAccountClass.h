@@ -72,6 +72,9 @@ public:
   string get_name() const;
   int get_accNum() const;
  double get_Bal() const;
+  double get_interest() const;
+ void set_bal(double);
+
 private:
   static int accNum;
   int theACCnum;

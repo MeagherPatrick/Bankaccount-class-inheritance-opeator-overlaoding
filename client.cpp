@@ -44,7 +44,7 @@ int main()
       case 'c':
       case 'C':
         for (int i = 0; i < SIZE; i++)
-          test[i].acc_Prt();
+          cout << test[i];
         break;
       case 'q':
       case 'Q':

@@ -43,6 +43,14 @@ double bankAccount::get_Bal() const
 {
   return bal;
 }
+double bankAccount::get_interest() const
+{
+  return inter;
+}
+void bankAccount::set_bal(double amt)
+{
+  bal = amt;
+}
 void bankAccount::acc_DEP(double amt)
 {
   if (amt > 0) {
