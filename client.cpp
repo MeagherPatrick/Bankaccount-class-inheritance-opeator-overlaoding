@@ -20,13 +20,14 @@ int main()
   checkingAccount test[SIZE];
   do {
         static int newACC=0;
-    cout << "Enter a to add a new customer's data. \n"
-         << "Enter b to edit customer data. \n"
-         << "Enter c to print all customer data. \n"
-         << "Enter q to exit the program. \n";
+    cout << "Enter A to add a new customer's data. \n"
+         << "Enter B to edit customer data. \n"
+         << "Enter C to print all customer data. \n"
+         << "Enter Q to exit the program. \n";
     cin >> ans;
-    switch (ans) {
-      case 'a':
+    ans = toupper(ans);
+       switch (ans) {
+     
       case 'A':
         if (newACC < 20) {
           test[newACC].acc_SET();
@@ -41,54 +42,55 @@ int main()
         }
         cout << "No more accounts can be created max of 20 was reached \n";
          break;
-      case 'b':
+    
       case 'B':
         for (int i = 0; i < SIZE; i++)
           test[i].acc_Prt();
         cout << "Please enter the account num you would to edit: \n  ";      
         cin >> acc;
         while (ans != 'q') {
-          cout << "Enter a to make a deposit. \n"
-               << "Enter b to withdraw. \n"
-               << "Enter c to check balance. \n"
-               << "Enter d to upate balance with interest.\n"
-               << "Enter e to update the monthly service charge. \n"
-               << "Enter f to update the minimum allowed balance \n"
-               << "Enter q to return to previous menu. \n";
+          cout << "Enter A to make a deposit. \n"
+               << "Enter B to withdraw. \n"
+               << "Enter C to check balance. \n"
+               << "Enter D to upate balance with interest.\n"
+               << "Enter E to update the monthly service charge. \n"
+               << "Enter F to update the minimum allowed balance \n"
+               << "Enter Q to return to previous menu. \n";
           cin >> ans;
+          ans = toupper(ans);
           amt = 0;
-          switch (ans) {
-            case 'a':
-            case 'A':
+          switch (ans2) {
+           case 'A':
               cout << "Enter the amount you would like to Deposit: \n";
               cin >> amt;
              test[acc] = test[acc] + amt;
               break;
-            case 'b':
+           
             case 'B':
               cout << "Enter the amount you would like to Withdraw: \n";
               cin >> amt;
               test[acc].acc_WIT(amt);
               break;
-            case 'c':
+           
             case 'C':
               cout << "The current balance is: $" << test[acc].get_Bal() << '\n';
               break;
-            case 'd':
+           
             case 'D':
               test[acc].acc_InterestUpdate();
               break;
-            case 'e':
+            
             case 'E':
               amt = 0;
               cout << "the current Monthly Service charge is: "
                    << test[acc].get_sc() << '\n';
               cout << "please enter the new Monthly Service charge \n";
               cin >> amt;
+              // test to make sure new service charge is great or equal to 0
               test[acc].set_sc(amt);
               cout << "the NEW Monthly Service charge is: "
                    << test[acc].get_sc() << '\n';
-            case 'f':
+              break;         
             case 'F':
               amt = 0;
               cout << "the current Monthly Service charge is: "
@@ -98,19 +100,20 @@ int main()
               test[acc].set_mb(amt);
               cout << "the New Minimum  reuired balance is: "
                    << test[acc].get_mb() << '\n';
-            case 'q':
+              break;
+            
             case 'Q':
             default:
               break;
           }
         }
         break;
-      case 'c':
+      
       case 'C':
         for (int i = 0; i < SIZE; i++)
           cout << test[i];
         break;
-      case 'q':
+     
       case 'Q':
        return 0;
         break;
