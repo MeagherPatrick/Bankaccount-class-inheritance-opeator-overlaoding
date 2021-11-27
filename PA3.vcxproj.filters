@@ -31,16 +31,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="README.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="BankAccountClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="checkingAccount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readMe.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
