@@ -29,33 +29,37 @@ public:
   double get_sc() const;
 	  //  returns Service Charge
 	  // Precondition:
-	  //				function must be return a double type
+	  //				function must  return  to a double type
 	  //
 	  // Postcondition:
 	  //				reurns service charge as double type
   double get_mb() const;
 	  //  returns Minimum Balance
 	  // Precondition:
-	  //				function must be return a double type
+	  //				function must  return  to a double type
 	  //
 	  // Postcondition:
 	  //				reurns Minimum Balance as double type
   void acc_WIT(double);
-  //over rides base class (bankAccount) withdraw fucntion
-  // Precondition:
-  //              withdrawal  < Balance
-  // Postcondition:
-  //			  Balance is decreased by the withdrawal
-  //			  cout to console:
-  //								 withdrawal
-  // 								 New Balance
+	  //over rides base class (bankAccount) withdraw fucntion
+	  // Precondition:
+	  //              withdrawal  < minimum balance
+	  //			  withdrawal can be made for more than min balance 
+	  //			  but service charge will apply
+	  //			  if service charge takes balance below 0 than transaction is denied
+	  // Postcondition:
+	  //			  Balance is decreased by the withdrawal
+	  //			  cout to console:
+	  //								 withdrawal
+	  // 								 New Balance
+      //				if balance is dropped below min balance (see precondition)
   checkingAccount operator+(const double);
-  //over rides the + operator
-  //   Precondition:
-  //            a double must be added to object
-  //   Postcondition:
-  //				amount will be added to and stored in balance
-  //
+	  //over rides the + operator
+	  //   Precondition:
+	  //            a double must be added to object
+	  //   Postcondition:
+	  //				amount will be added to and stored in balance
+	  //
 
 private:
   double service_Charge;

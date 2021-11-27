@@ -31,17 +31,36 @@ void checkingAccount::acc_WIT(double amt)
 {
   double bal = 0;
   bal = get_Bal();
-    if (amt <= bal) {
-
+  double test_bal = bal;
+  //cout << bal << '\n';
+    if ((test_bal-=amt) >= min_balance)    {
       bal -= amt;
-      cout << "after Withdrawing: " << amt << '\n'
+            cout << "after Withdrawing: " << amt << '\n'
            << "the balance is now: " << fixed << setprecision(2) << bal
            << '\n';
       set_bal(bal);
-    } else
-      cout << "error can not withdraw more than current balance: \n"
-           << "current balance is: " << fixed << setprecision(2) << bal
-           << '\n';
+    } 
+        else 
+        {
+                
+            cout << bal << '\n';
+      cout << "****Amount will reduce account below min balance: current min "
+              "balance required: "
+           << min_balance << '\n'
+      << " The Service charge will be applied to current balance: **** \n "
+           << "Current balance is: " << fixed << setprecision(2) << bal << '\n'
+           << "Current service charge is: " << service_Charge << '\n';
+            bal -=service_Charge ;
+            bal -= amt;
+            cout << "The balance is now: " << fixed << setprecision(2) << bal
+                 << '\n';
+            if (bal < 0) {
+        cout << "**** Balance has dropped below \"0.00\" : "
+             << " transaction is cancaled \n";
+        bal = get_Bal();
+        cout << "current balance is: " << fixed << setprecision(2) << bal << '\n';
+      }
+    }
 }
 
 checkingAccount checkingAccount::operator+(const double x)

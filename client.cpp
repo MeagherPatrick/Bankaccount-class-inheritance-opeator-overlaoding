@@ -1,7 +1,7 @@
 /***************************************
 Program Name: Client.cpp
 Author: Patrick Meagher
-Date: 11/13/2021
+Date: 11/26/2021
 input: from User 
 output: to Console
 This program allows a client to 
@@ -31,11 +31,27 @@ int main()
       case 'A':
         if (newACC < 20) {
           test[newACC].acc_SET();
-          cout << "please enter the Monthly Service Charge";
+          do {
+          cout << "Please enter the Monthly Service Charge: \n Amount equal to \"$0.00\" will set the default service. \n enter amount now:  ";
           cin >> amt;
-          test[newACC].set_sc(amt);
-          cout << "please enter the Minimum Balance";
-          cin >> amt;
+          if (amt < 0)
+            cout << "****Amount must be greater than or equal to: \"$0.00\"****  \n ";
+          } while (amt < 0);
+           if (amt == 0) 
+               {
+            cout << "Amount equal to \"$0.00\" will set the default service "
+                    "charge of: \"$1.00\" \n";                    
+           }
+           else 
+               { test[newACC].set_sc(amt); } 
+          do
+          {
+              cout << "Please enter the Minimum Balance: ";
+              cin >> amt;
+              if (amt < 0) {
+              cout << "****Amount must be greater than or equal to: \"$0.00\"****  \n ";
+              }
+          } while (amt < 0);
           test[newACC].set_mb(amt);
           newACC++;
           break;
@@ -59,7 +75,7 @@ int main()
           cin >> ans;
           ans = toupper(ans);
           amt = 0;
-          switch (ans2) {
+          switch (ans) {
            case 'A':
               cout << "Enter the amount you would like to Deposit: \n";
               cin >> amt;
@@ -84,8 +100,12 @@ int main()
               amt = 0;
               cout << "the current Monthly Service charge is: "
                    << test[acc].get_sc() << '\n';
+              do {
               cout << "please enter the new Monthly Service charge \n";
               cin >> amt;
+              if (amt < 0)
+                cout << "****Amount must be greater than or equal to: \"$0.00\"****  \n ";
+              } while (amt < 0);
               // test to make sure new service charge is great or equal to 0
               test[acc].set_sc(amt);
               cout << "the NEW Monthly Service charge is: "
@@ -95,25 +115,28 @@ int main()
               amt = 0;
               cout << "the current Monthly Service charge is: "
                    << test[acc].get_mb() << '\n';
-              cout << "PLease Enter The NEW Minimum Required Balance\n";
+              do {
+                cout << "PLease Enter The NEW Minimum Required Balance\n";
               cin >> amt;
+              if (amt < 0)
+                cout
+                  << "****Amount must be greater than or equal to: \"$0.00\"****  \n ";
+          }
+          while (amt < 0);
               test[acc].set_mb(amt);
               cout << "the New Minimum  reuired balance is: "
                    << test[acc].get_mb() << '\n';
               break;
-            
             case 'Q':
             default:
               break;
           }
         }
         break;
-      
       case 'C':
         for (int i = 0; i < SIZE; i++)
           cout << test[i];
         break;
-     
       case 'Q':
        return 0;
         break;

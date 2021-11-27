@@ -70,10 +70,35 @@ public:
 		//			  cout to console:
 		//							  New Balance
   string get_name() const;
+		//  returns Name
+		// Precondition:
+	    //				function must return to a string type
+	    // Postcondition:
+		//				reurns name as a string type
   int get_accNum() const;
+		//  returns account number
+		// Precondition:
+		//				function must return to an int type
+		// Postcondition:
+		//				reurns account number as an int type
  double get_Bal() const;
+		//  returns balance
+		// Precondition:
+		//				function must return to a double type
+		// Postcondition:
+		//				reurns balance as a double type
   double get_interest() const;
+		//  returns interest
+		// Precondition:
+		//				function must return to a double type
+		// Postcondition:
+		//				reurns interest as a double type
  void set_bal(double);
+		//  sete balance
+		// Precondition:
+		//				balance must already be set and > 0
+		// Postcondition:
+		//				will set a new balance
 
 private:
   static int accNum;
