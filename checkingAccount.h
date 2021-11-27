@@ -2,6 +2,18 @@
 class checkingAccount: public bankAccount
 {
   friend ostream& operator<<(ostream&, checkingAccount&);
+		// overloaded << operator 
+		// Precondition:
+		//				 Object of checkingAccountClass must be created in client .cpp
+		// Postcondition:
+		//				  Outputs to conconsole:
+		//										 Name
+		//										 Balance
+		//										 Interest 
+		//								         Acc Num
+		//										 Min Bal
+		//										 Service Charge
+
  
 public:
   checkingAccount();

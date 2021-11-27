@@ -64,7 +64,7 @@ int main()
           test[i].acc_Prt();
         cout << "Please enter the account num you would to edit: \n  ";      
         cin >> acc;
-        while (ans != 'q') {
+        while (ans != 'Q') {
           cout << "Enter A to make a deposit. \n"
                << "Enter B to withdraw. \n"
                << "Enter C to check balance. \n"
@@ -128,6 +128,7 @@ int main()
                    << test[acc].get_mb() << '\n';
               break;
             case 'Q':
+              break;
             default:
               break;
           }
@@ -141,7 +142,7 @@ int main()
        return 0;
         break;
     }
-  } while (ans != 'q');
+  } while (ans != 'Q');
   return 0;
   }
 

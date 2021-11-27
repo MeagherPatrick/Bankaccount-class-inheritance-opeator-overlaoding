@@ -7,6 +7,7 @@ using namespace std;
 class bankAccount
 {
 public:
+
   bankAccount();
 		// Constructor
         // Precondition: 

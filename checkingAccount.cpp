@@ -52,24 +52,26 @@ void checkingAccount::acc_WIT(double amt)
            << "Current service charge is: " << service_Charge << '\n';
             bal -=service_Charge ;
             bal -= amt;
-            cout << "The balance is now: " << fixed << setprecision(2) << bal
+                 cout << "The balance is now: " << fixed << setprecision(2) << bal
                  << '\n';
             if (bal < 0) {
         cout << "**** Balance has dropped below \"0.00\" : "
              << " transaction is cancaled \n";
         bal = get_Bal();
         cout << "current balance is: " << fixed << setprecision(2) << bal << '\n';
-      }
+        
+      } else
+              set_bal(bal);
     }
 }
 
-checkingAccount checkingAccount::operator+(const double x)
+checkingAccount checkingAccount::operator+(const double amt)
 {
-  double i = 0;
+  double balance = 0;
   checkingAccount temp = *this;
-  i = temp.get_Bal();
-  i += x;
-   temp.set_bal(i);  
+  balance = temp.get_Bal();
+  balance += amt;
+  temp.set_bal(balance);  
   return temp;
 }
 
